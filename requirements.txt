@@ -1,0 +1,6 @@
+lanchain_community
+langchain_groq
+streamlit
+chromadb
+bs4
+uuid
