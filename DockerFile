@@ -1,0 +1,17 @@
+# Official lightweight base Image
+FROM python:3.11-slim
+
+# Copy application code
+COPY . /app/
+
+# Set working directory
+WORKDIR /app
+
+# Install required dependecies
+RUN pip install --no-cache-dir -r requirements.txt
+
+#Expose the required port
+EXPOSE 8001
+
+# Specify the default command to run the app
+CMD ["sh", "-c", "python main.py"]
