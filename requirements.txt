@@ -1,6 +1,5 @@
-lanchain_community
-langchain_groq
-streamlit
-chromadb
-bs4
-uuid
+langchain_community==0.3.26
+langchain_groq==0.3.4
+streamlit==1.46.1
+chromadb==1.0.13
+bs4==0.0.2
