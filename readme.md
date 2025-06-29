@@ -1,60 +1,76 @@
-# Personalized Cold Email Generator for Job Postings
+# ✉️ Cold Email Generator
 
-## 🔍 Overview
+Generate personalized cold emails from job postings — powered by AI and LLMs.
 
-This project automates the manual and time-consuming task of writing personalized cold emails for job openings discovered on company websites. It is designed for consulting companies and business development teams looking to scale their outreach with high relevance and customization.
+## 🚀 Overview
+The Cold Email Generator is a Streamlit web app that helps you craft tailored cold emails for job applications. By leveraging large language models (LLMs) and vector search, it analyzes job postings and your portfolio to generate highly relevant emails, saving you time and increasing your chances of landing interviews.
 
-By leveraging Large Language Models (LLMs) like **Llama 3.1** and a vector database (**ChromaDB**), the system intelligently parses job descriptions, identifies relevant skills, matches internal expertise and portfolios, and generates personalized outreach emails.
+## 🛠️ Features
+- **Paste a Job Posting URL:** Enter any job posting link to analyze its content.
+- **Automatic Data Extraction:** The app scrapes and cleans job descriptions for you.
+- **Portfolio Integration:** Matches your skills and portfolio links to the job requirements.
+- **AI-Powered Email Writing:** Uses LLMs to generate personalized cold emails.
+- **Modern UI:** Clean, responsive interface built with Streamlit.
+
+## 📦 Project Structure
+```
+├── main.py                # Streamlit app entry point
+├── chains.py              # LLM and email generation logic
+├── portfolio.py           # Portfolio management and querying
+├── utils.py               # Utility functions (e.g., text cleaning)
+├── requirements.txt       # Python dependencies
+├── sample_portfolio.csv   # Example portfolio data
+├── DockerFile             # Docker container setup
+├── .dockerignore          # Docker build context exclusions
+├── .gitignore             # Git exclusions
+├── vectorstore2/          # Vector database (auto-generated)
+└── Cold Email Generator.png # App result screenshot
+```
+
+## ⚡ Quick Start
+### 1. Clone the Repository
+```bash
+git clone <your-repo-url>
+cd Cold-Email-Generator
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the App
+```bash
+streamlit run main.py
+```
+
+### 4. Open in Browser
+Go to [http://localhost:8501](http://localhost:8501) to use the app.
+
+## 🐳 Docker Usage
+Build and run the app in a container:
+```bash
+docker build -t cold-email-generator .
+docker run -p 8001:8001 cold-email-generator
+```
+
+## 📝 How It Works
+1. **Input:** Paste a job posting URL.
+2. **Processing:** The app scrapes and cleans the job description.
+3. **Portfolio Matching:** Your portfolio is loaded and matched to job skills.
+4. **Email Generation:** An LLM writes a personalized cold email.
+5. **Output:** The generated email is displayed for you to copy and use.
+
+## 📁 Customization
+- **Portfolio:** Replace `sample_portfolio.csv` with your own data for better results.
+- **LLM & Chains:** Modify `chains.py` to use different models or prompt templates.
+
+## 🤝 Contributing
+Pull requests and suggestions are welcome! Please open an issue to discuss changes.
+
+## 📄 License
+MIT License. See `LICENSE` for details.
 
 ---
 
-## 📌 Use Case
-
-### Manual Process (Before Automation)
-
-Sales and BD (Business Development) teams used to:
-- Monitor company websites for job postings.
-- Manually read and analyze each job description.
-- Identify matching candidates and past relevant projects.
-- Research the company background.
-- Draft a personalized cold email for each opportunity.
-- Repeat the process for hundreds of potential leads.
-
-This was time-intensive and inefficient.
-
-### Automated Solution (Our Tool)
-
-With this project, you can:
-- Input a **job posting URL**.
-- Automatically extract the job role, required skills, and description using **LLM**.
-- Retrieve relevant internal **skills** and **portfolio links** from **ChromaDB**.
-- Generate a **personalized email** with project references and skill alignment.
-- Scale your cold outreach efforts quickly and efficiently.
-
----
-
-
-## 💡 Key Features
-
-- 🔎 **Job Parsing**: Extracts structured information from unstructured job descriptions.
-- 🧠 **Smart Matching**: Finds relevant candidates and portfolio projects using vector search.
-- ✉️ **Email Generation**: Drafts human-like, personalized cold emails.
-- ⚡ **Scalable**: Handles hundreds of leads with minimal manual input.
-
----
-
-## 🎯 Target Users
-
-- Consulting firms  
-- Freelancers and agencies  
-- Business development teams  
-- Talent acquisition professionals  
-
----
-
-## 🧱 Tech Stack
-
-- **LLM**: Llama 3.1  
-- **Vector DB**: ChromaDB  
-- **Languages**: Python  
-- **Use Cases**: Cold outreach, client acquisition, lead generation  
+> Made with ❤️ using Streamlit, LangChain, and Python.

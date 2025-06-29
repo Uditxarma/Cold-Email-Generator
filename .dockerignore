@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+vectorstore2/
+.DS_Store
+.env
+*.egg-info/
+*.egg
+# Do not exclude sample_portfolio.csv or Cold Email Generator.png as they may be needed in the container

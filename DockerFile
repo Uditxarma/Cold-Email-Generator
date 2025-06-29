@@ -1,17 +1,27 @@
 # Official lightweight base Image
 FROM python:3.11-slim
 
-# Copy application code
-COPY . /app/
-
 # Set working directory
 WORKDIR /app
 
-# Install required dependecies
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies first for better caching
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code
+COPY . .
 
 #Expose the required port
 EXPOSE 8001
 
 # Specify the default command to run the app
-CMD ["sh", "-c", "python main.py"]
+CMD ["python", "main.py"]
